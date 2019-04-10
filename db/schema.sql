@@ -3,7 +3,7 @@ USE golfCourses_db;
 
 CREATE TABLE courses
 (
-	id int NOT NULL AUTO_INCREMENT,
+	id INT AUTO_INCREMENT NOT NULL,
 	name varchar(255) NOT NULL,
 	played BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
