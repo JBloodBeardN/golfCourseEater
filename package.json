@@ -1,0 +1,25 @@
+{
+  "name": "golfCourseEater",
+  "version": "1.0.0",
+  "description": "Burger Eater homework as a local golf course checklist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JBloodBeardN/golfCourseEater.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JBloodBeardN/golfCourseEater/issues"
+  },
+  "homepage": "https://github.com/JBloodBeardN/golfCourseEater#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.16.0"
+  }
+}
