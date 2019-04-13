@@ -1,22 +1,10 @@
-//this needs get route for /
-
-
-//this needs a get route for /courses
-
-
-//this needs a post route for newCourse
-
-
-//this needs a put route for updateDevoured
-
 var express = require("express");
 
 var router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
 var course = require("../models/burger.js");
+//this needs get route for /
 
-// Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   course.all(function(data) {
     var hbsObject = {
@@ -27,40 +15,21 @@ router.get("/", function(req, res) {
   });
 });
 
-router.delete("/api/cats/:id", function(req, res) {
-  cat.delete([req.params.id], function(result){
+//this needs a post route for newCourse
+router.post("/api/courses", function(req, res){
+  course.insertOne(req.body.name, function(result){
     res.json(result);
   })
-}
-)
-
-router.post("/api/cats", function(req, res) {
-  cat.create([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
 });
 
-router.put("/api/cats/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+//this needs a put route for updateDevoured
 
-  console.log("condition", condition);
-
-  cat.update({
-    sleepy: req.body.sleepy
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
+router.put("/api/played/:id", function(req, res){
+  course.updateOne(req.params.id, function(result){
+    res.status(200).end();
+  })
 });
 
-// Export routes for server.js to use.
+
+// Export routes for server.js
 module.exports = router;

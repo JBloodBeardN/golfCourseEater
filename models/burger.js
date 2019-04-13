@@ -1,26 +1,20 @@
 var orm = require("../config/orm.js");
 
 var courses = {
-  all: function(cb) {
-    orm.all("cats", function(res) {
-      cb(res);
+  all: function(callback) {
+    orm.selectAll(function(res) {
+      callback(res);
     });
   },
-  // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("cats", cols, vals, function(res) {
-      cb(res);
-    });
+  insertOne: function(name, callback){
+    orm.insertOne(name, function(res){
+      callback(res);
+    })
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("cats", objColVals, condition, function(res) {
-      cb(res);
-    });
-  },
-  delete: function(deleteId, cb){
-    orm.delete("cats", deleteId, function(res){
-      cb(res);
-    });
+  updateOne: function(id, callback){
+    orm.updateOne(id, function(res){
+      callback(res);
+    })
   }
 };
 
