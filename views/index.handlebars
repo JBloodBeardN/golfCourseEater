@@ -12,7 +12,7 @@
             <ul>
                 {{#each courses}}
                 {{#unless played}}
-                {{> __dirname + 'parts/nondevouredPartial'}}
+                {{> parts/nondevouredPartial}}
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -26,7 +26,7 @@
             <ul>
                 {{#each courses}}
                 {{#if played}}
-                {{> __dirname + 'parts/devouredPartial'}}
+                {{> parts/devouredPartial}}
                 {{/if}}
                 {{/each}}
             </ul>
@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-md-12">
             {{!-- this needs a partial area for newCourseInputForm --}}
-            {{>__dirname + 'parts/newFormPartial'}}
+            {{> parts/newFormPartial}}
         </div>
     </div>
 </div>
