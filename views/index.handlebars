@@ -1,10 +1,42 @@
-{{!-- This needs a partial area for notDevouredList --}}
-{{!-- include a devour it button --}}
-
-
-{{!-- this needs a partial area for devouredList --}}
-
-
-
-{{!-- this needs a partial area for newCourseInputForm --}}
-
+<div id=container>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Golf Course List!</h1>
+        </div>
+    </div>
+    {{!-- End of First Row --}}
+    <div class="row">
+        {{!-- start of nondevoured list --}}
+        <div class="col-md-6">
+            <h2>Golf Courses to Play</h2>
+            <ul>
+                {{#each courses}}
+                {{#unless played}}
+                {{> nondevouredPartial played=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+            {{!-- This needs a partial area for notDevouredList --}}
+            {{!-- include a devour it button --}}
+        </div>
+        {{!-- start of devoured list --}}
+        <div class="col-md-6">
+            <h2>Golf Courses Played</h2>
+            {{!-- this needs a partial area for devouredList --}}
+            <ul>
+                {{#each courses}}
+                {{#if played}}
+                {{> devouredPartial played=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{!-- End of second row --}}
+    <div class="row">
+        <div class="col-md-12">
+            {{!-- this needs a partial area for newCourseInputForm --}}
+            {{>newFormPartial}}
+        </div>
+    </div>
+</div>
